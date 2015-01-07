@@ -18,6 +18,7 @@ const MDNPanel = Class({
   tooltip: _("tab_tooltip"),
   icon: "./icon.png",
   url: "./index.html",
+  id: "mdnPanel",
   setup: function() {
     console.log("MDN panel setup!");
 
@@ -50,4 +51,18 @@ const MDNPanel = Class({
   }
 });
 exports.MDNPanel = MDNPanel;
-const mdnTool = new Tool({ panels: { repl: MDNPanel } });
+const mdnTool = new Tool({ panels: { mdnPanel: MDNPanel } });
+
+
+// Create a menu item for the "Tools" toolbar
+require("addon-pathfinder/ui/menuitems").Menuitem({
+  id: "mdnMenuItem",
+  // Using this menuid "menuWebDeveloperPopup" since "menu_devToolbox" appears to be dynamic and I can't append to it
+  menuid: "menuWebDeveloperPopup",
+  label: _("tab_name"),
+  insertbefore: "menu_devToolbox",
+  onCommand: function() {    
+    // ToDo:  Open DevTools with the MDN tab focused
+    require("dev/utils").openToolbox(MDNPanel);
+  }
+});
