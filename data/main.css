@@ -1,6 +1,4 @@
 body {
-	background-color: #14171a;
-	color: #fff;
 	font-family: Arial, sans-serif;
 	font-size: 0.8em;
 	padding: 10px;
@@ -10,4 +8,5 @@ p {
 	background: #343c45;
 	padding: 5px 10px;
 	border-radius: 3px;
+	color: #fff;
 }
