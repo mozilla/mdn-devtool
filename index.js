@@ -12,7 +12,7 @@ const { Class } = require("sdk/core/heritage");
 var _ = require("sdk/l10n").get;
 
 // Create and place the new tab within the panel
-const MDNPanel = Class({
+const SecurityPanel = Class({
   extends: Panel,
   label: _("tab_name"),
   tooltip: _("tab_tooltip"),
@@ -50,19 +50,21 @@ const MDNPanel = Class({
 
   }
 });
-exports.MDNPanel = MDNPanel;
-const mdnTool = new Tool({ panels: { mdnPanel: MDNPanel } });
+exports.SecurityPanel = SecurityPanel;
+const { securityTool } = new Tool({ panels: { mdnPanel: SecurityPanel } });
+
+
 
 
 // Create a menu item for the "Tools" toolbar
 require("addon-pathfinder/ui/menuitems").Menuitem({
-  id: "mdnMenuItem",
+  id: "securityMenuItem",
   // Using this menuid "menuWebDeveloperPopup" since "menu_devToolbox" appears to be dynamic and I can't append to it
   menuid: "menuWebDeveloperPopup",
   label: _("tab_name"),
   insertbefore: "menu_devToolbox",
   onCommand: function() {    
-    // ToDo:  Open DevTools with the MDN tab focused
-    require("dev/utils").openToolbox(MDNPanel);
+    require("dev/utils").openToolbox(SecurityPanel);
   }
 });
+
