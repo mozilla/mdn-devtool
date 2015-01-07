@@ -1,0 +1,10 @@
+{
+  "name": "mdn-devtool",
+  "id": "@mdn-devtool",
+  "title": "MDN Services",
+  "description": "MDN Services official developer tool",
+  "version": "0.1.0",
+  "author": "David Walsh, Mozilla",
+  "main": "./index.js",
+  "license": "MPL 2.0"
+}
