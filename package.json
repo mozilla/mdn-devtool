@@ -3,10 +3,11 @@
   "id": "@mdn-devtool",
   "title": "MDN Services",
   "description": "MDN Services official developer tool",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "author": "David Walsh, Mozilla",
   "main": "./index.js",
   "license": "MPL 2.0",
+  "keywords": ["security", "zest"],
   "dependencies": {
     "addon-pathfinder": "^1.0.3"
   }
