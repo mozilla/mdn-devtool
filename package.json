@@ -1,6 +1,6 @@
 {
   "name": "mdn-devtool",
-  "id": "@mdn-devtool",
+  "id": "mdn-devtool@mozilla.com",
   "title": "MDN Services",
   "description": "MDN Services official developer tool",
   "version": "0.0.1",

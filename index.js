@@ -16,8 +16,8 @@ const SecurityPanel = Class({
   extends: Panel,
   label: _("tab_name"),
   tooltip: _("tab_tooltip"),
-  icon: "./icon.png",
-  url: "./index.html",
+  icon: "chrome://mdn-devtool/content/icon.png",
+  url: "chrome://mdn-devtool/content/index.html",
   id: "mdnPanel",
   setup: function() {
     console.log("MDN panel setup!");
@@ -51,10 +51,12 @@ const SecurityPanel = Class({
   }
 });
 exports.SecurityPanel = SecurityPanel;
-const { securityTool } = new Tool({ panels: { mdnPanel: SecurityPanel } });
-
-
-
+const securityTool = new Tool({
+    panels: {
+      mdnPanel: SecurityPanel
+    }
+  }
+);
 
 // Create a menu item for the "Tools" toolbar
 require("addon-pathfinder/ui/menuitems").Menuitem({
@@ -63,7 +65,7 @@ require("addon-pathfinder/ui/menuitems").Menuitem({
   menuid: "menuWebDeveloperPopup",
   label: _("tab_name"),
   insertbefore: "menu_devToolbox",
-  onCommand: function() {    
+  onCommand: function() {
     require("dev/utils").openToolbox(SecurityPanel);
   }
 });
