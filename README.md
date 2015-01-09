@@ -12,7 +12,7 @@ To get started with developing and testing this add-on, do the following:
 Clone this project:
 
 ```
-git clone https://github.com/darkwing/mdn-devtool.git
+git clone https://github.com/mozilla/mdn-devtool.git
 cd mdn-devtool
 ```
 
