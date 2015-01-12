@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE window [
+  <!ENTITY % MDNDevToolDTD SYSTEM "chrome://mdn-devtool/locale/strings.dtd">
+   %MDNDevToolDTD;
+]>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <head>
+    <link rel="stylesheet" href="chrome://browser/skin/"/>
+    <link rel="stylesheet" href="chrome://browser/skin/devtools/common.css"/>
+    <link rel="stylesheet" href="chrome://mdn-devtool/skin/style.css"/>
+
+    <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
+    <xul:script src="tool.js"/>
+  </head>
+
+  <body class="theme-body">
+    <p>&MDNDevToolUI.label;</p>
+    <p id="hello"></p>
+
+    <button>Hello!</button>
+  </body>
+
+</html>
