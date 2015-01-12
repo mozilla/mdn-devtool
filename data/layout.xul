@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE window [
+  <!ENTITY % MyAddonDTD SYSTEM "chrome://my-addon/locale/strings.dtd">
+   %MyAddonDTD;
+]>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <head>
+    <link rel="stylesheet" href="chrome://browser/skin/"/>
+    <link rel="stylesheet" href="chrome://browser/skin/devtools/common.css"/>
+    <link rel="stylesheet" href="./main.css"/>
+
+    <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
+    <xul:script src="tool.js"/>
+  </head>
+
+  <body>
+    
+    <!-- left sidebar items -->
+    <button class="devtools-toolbarbutton" onclick="startRecording();">[icon]</button>
+    <button class="devtools-toolbarbutton" onclick="startScanning();">[icon]</button>
+    <button class="devtools-toolbarbutton" data-l10n-id="sidebar_import_button_text"></button>
+    <button class="devtools-toolbarbutton" data-l10n-id="sidebar_clear_button_text"></button>
+    
+
+    <!-- right content pane stuff -->
+    <p data-l10n-id="content_begin_recording" onclick="startRecording();"></p>
+    <p data-l10n-id="content_access_scanning" onclick="startScanning();"></p>
+    
+
+    <!-- <script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"></script> -->
+    <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
+    <script type="text/javascript">
+
+      function startRecording() {
+        console.log("Start recording!");
+      }
+
+      function startScanning() {
+        console.log("Start scanning!");
+      }
+
+    </script>
+
+
+
+  </body>
+
+</html>

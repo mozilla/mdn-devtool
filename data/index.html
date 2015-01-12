@@ -1,13 +1,12 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
 	- License, v. 2.0. If a copy of the MPL was not distributed with this
 	- file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<head>
 		<link rel="stylesheet" href="chrome://global/skin/global.css" type="text/css">
 		<link rel="stylesheet" href="chrome://browser/skin/devtools/common.css" type="text/css">
 		<link rel="stylesheet" href="./main.css" type="text/css">
-
-		<script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"></script>
 	</head>
 	<body class="theme-body">
 		
@@ -24,7 +23,8 @@
 		<p data-l10n-id="content_access_scanning" onclick="startScanning();"></p>
 		
 
-
+		<!-- <script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"></script> -->
+		<xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
 		<script type="text/javascript">
 
 			function startRecording() {
