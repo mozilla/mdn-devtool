@@ -20,7 +20,7 @@
 
   <script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"/>
 
-  <xul:stack class="theme-body" style="-moz-box-flex: 1;">
+  <xul:stack class="theme-body">
 
     <xul:box class="splitview-root" context="sidebar-context">
       <xul:box class="splitview-controller">
@@ -51,11 +51,11 @@
         <xul:box id="splitview-resizer-target" class="theme-sidebar splitview-nav-container"
                 persist="height">
           <ol class="splitview-nav" tabindex="0"></ol>
-          <div class="splitview-nav placeholder empty">
-            <p><strong>Security Tests</strong></p>
+          <div class="splitview-nav mdn-content-pane">
+            <p><strong>&MDNDevTool.securityTestsHeading;</strong></p>
             <p>(Tree widget)</p>
 
-            <p><strong>Security Recommendations</strong></p>
+            <p><strong>&MDNDevTool.securityRecommendationsHeading;</strong></p>
             <p>(Tree widget)</p>
           </div>
         </xul:box> <!-- .splitview-nav-container -->
@@ -65,7 +65,7 @@
       <xul:splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
 
       <!-- Right pane to display all text -->
-      <xul:box class="splitview-side-details devtools-main-content">
+      <xul:box class="splitview-side-details devtools-main-content mdn-content-pane">
 
         (Right pane)
 

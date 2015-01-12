@@ -5,3 +5,10 @@
 /* Go to https://developer.mozilla.org/docs/Tools/DevToolsColors
  * for the default colors used in Firefox Developer Tools */
 
+.theme-body {
+	-moz-box-flex: 1;
+}
+
+.mdn-content-pane {
+	padding: 10px 20px;
+}
