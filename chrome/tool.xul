@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -8,23 +8,69 @@
    %MDNDevToolDTD;
 ]>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/devtools/widgets.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/devtools/splitview.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/common.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/widgets.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/splitview.css" type="text/css"?>
+<?xml-stylesheet href="chrome://mdn-devtool/skin/style.css" type="text/css"?>
 
-  <head>
-    <link rel="stylesheet" href="chrome://browser/skin/"/>
-    <link rel="stylesheet" href="chrome://browser/skin/devtools/common.css"/>
-    <link rel="stylesheet" href="chrome://mdn-devtool/skin/style.css"/>
+<xul:window xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns="http://www.w3.org/1999/xhtml">
 
-    <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
-    <xul:script src="tool.js"/>
-  </head>
+  <script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"/>
 
-  <body class="theme-body">
-    <p>&MDNDevToolUI.label;</p>
-    <p id="hello"></p>
+  <xul:stack class="theme-body" style="-moz-box-flex: 1;">
 
-    <button>Hello!</button>
-  </body>
+    <xul:box class="splitview-root" context="sidebar-context">
+      <xul:box class="splitview-controller">
 
-</html>
+        <!-- Top left toolbar where buttons go -->
+        <xul:box class="splitview-main">
+          <xul:toolbar class="devtools-toolbar">
+             <xul:hbox class="devtools-toolbarbutton-group">
+              <xul:toolbarbutton
+                        class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        tooltiptext="&MDNDevTool.recordButtonTooltip;"/>
+              <xul:toolbarbutton
+                        class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        tooltiptext="&MDNDevTool.scanningButtonTooltip;"/>
+              <xul:toolbarbutton class="devtools-toolbarbutton"
+                          accesskey=""
+                          tooltiptext="&MDNDevTool.importButtonTooltip;"
+                          label="&MDNDevTool.importButtonLabel;"/>
+              <xul:toolbarbutton class="devtools-toolbarbutton"
+                          accesskey=""
+                          tooltiptext="&MDNDevTool.clearButtonTooltip;"
+                          label="&MDNDevTool.clearButtonLabel;"/>
+            </xul:hbox>
+          </xul:toolbar>
+        </xul:box>
+
+        <!-- Botton of the left sidebar where the trees go -->
+        <xul:box id="splitview-resizer-target" class="theme-sidebar splitview-nav-container"
+                persist="height">
+          <ol class="splitview-nav" tabindex="0"></ol>
+          <div class="splitview-nav placeholder empty">
+            <p><strong>Security Tests</strong></p>
+            <p>(Tree widget)</p>
+
+            <p><strong>Security Recommendations</strong></p>
+            <p>(Tree widget)</p>
+          </div>
+        </xul:box> <!-- .splitview-nav-container -->
+      </xul:box>   <!-- .splitview-controller -->
+
+      <!-- Splitter handle -->
+      <xul:splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
+
+      <!-- Right pane to display all text -->
+      <xul:box class="splitview-side-details devtools-main-content">
+
+        (Right pane)
+
+      </xul:box>
+    </xul:box>
+  </xul:stack>
+
+</xul:window>
