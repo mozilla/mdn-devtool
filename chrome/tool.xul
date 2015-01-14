@@ -18,7 +18,8 @@
 
 <xul:window xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns="http://www.w3.org/1999/xhtml">
 
-  <script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"/>
+  <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
+  <xul:script src="tool.js"/>
 
   <xul:stack class="theme-body">
 
@@ -67,7 +68,7 @@
       <xul:splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
 
       <!-- Right pane to display all text -->
-      <xul:box class="splitview-side-details devtools-main-content mdn-content-pane">
+      <xul:box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
 
         (Right pane)
 

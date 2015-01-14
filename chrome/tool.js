@@ -48,5 +48,5 @@ function shutdown() {
 /**
  * DOM query helpers.
  */
-function $(selector, target = document) target.querySelector(selector);
-function $$(selector, target = document) target.querySelectorAll(selector);
+function $(selector, target = document) { return target.querySelector(selector); }
+function $$(selector, target = document) { return target.querySelectorAll(selector); }
