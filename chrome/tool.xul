@@ -31,9 +31,11 @@
              <xul:hbox class="devtools-toolbarbutton-group">
               <xul:toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        image="chrome://mdn-devtool/skin/record.png"
                         tooltiptext="&MDNDevTool.recordButtonTooltip;"/>
               <xul:toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        image="chrome://mdn-devtool/skin/stopwatch.svg"
                         tooltiptext="&MDNDevTool.scanningButtonTooltip;"/>
               <xul:toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""

@@ -32,8 +32,6 @@ XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
  *         A promise that should be resolved when the tool completes opening.
  */
 function startup(toolbox, target) {
-  
-
   return promise.resolve();
 }
 
