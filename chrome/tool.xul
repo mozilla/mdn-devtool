@@ -33,19 +33,23 @@
               <xul:toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/record.png"
-                        tooltiptext="&MDNDevTool.recordButtonTooltip;"/>
+                        tooltiptext="&MDNDevTool.recordButtonTooltip;"
+                        onclick="onRecordClick()"/>
               <xul:toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/stopwatch.svg"
-                        tooltiptext="&MDNDevTool.scanningButtonTooltip;"/>
+                        tooltiptext="&MDNDevTool.scanningButtonTooltip;"
+                        onclick="onScanClick()"/>
               <xul:toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""
                           tooltiptext="&MDNDevTool.importButtonTooltip;"
-                          label="&MDNDevTool.importButtonLabel;"/>
+                          label="&MDNDevTool.importButtonLabel;"
+                          onclick="onImportClick()"/>
               <xul:toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""
                           tooltiptext="&MDNDevTool.clearButtonTooltip;"
-                          label="&MDNDevTool.clearButtonLabel;"/>
+                          label="&MDNDevTool.clearButtonLabel;"
+                          onclick="onClearClick()"/>
             </xul:hbox>
           </xul:toolbar>
         </xul:box>
