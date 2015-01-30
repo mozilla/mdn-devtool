@@ -26,7 +26,7 @@ XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
  *        Optional arguments to format in the string.
  * @return string
  */
-this._ = function _(aName) {
+function _(aName) {
   try {
     if (arguments.length == 1) {
       return toolStrings.GetStringFromName(aName);
@@ -36,7 +36,6 @@ this._ = function _(aName) {
   }
   catch (ex) {
     console.error(ex);
-    throw new Error("L10N error. '" + aName + "' is missing from " + PROPERTIES_URL);
   }
 }
 
