@@ -10,10 +10,16 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/osfile.jsm");
 Cu.import("resource://gre/modules/NetUtil.jsm");
 
+const {devtools} = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
+const {require} = devtools;
+
 XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter",
   "resource://gre/modules/devtools/event-emitter.js");
 XPCOMUtils.defineLazyModuleGetter(this, "promise",
   "resource://gre/modules/commonjs/sdk/core/promise.js", "Promise");
+
+XPCOMUtils.defineLazyGetter(this, "TreeWidget",
+  () => require("devtools/shared/widgets/TreeWidget").TreeWidget);
 
 XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
   Services.strings.createBundle("chrome://mdn-devtool/locale/strings.properties"));
@@ -56,6 +62,17 @@ function _(aName) {
  *         A promise that should be resolved when the tool completes opening.
  */
 function startup(toolbox, target) {
+  // Create the testing tree
+  let treeSecurity = new TreeWidget($('#sec-test-tree'));
+  treeSecurity.add(['Tests', 'Item 1']);
+  treeSecurity.add(['Tests', 'Item 2']);
+
+
+  // Create the recommendations tree
+  let treeRecommendation = new TreeWidget($('#sec-recommendation-tree'));
+  treeRecommendation.add(['Tests', 'Item 1']);
+  treeRecommendation.add(['Tests', 'Item 2']);
+
   return promise.resolve();
 }
 

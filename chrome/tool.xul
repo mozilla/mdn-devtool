@@ -60,10 +60,10 @@
           <ol class="splitview-nav" tabindex="0"></ol>
           <div class="splitview-nav mdn-content-pane">
             <p><strong>&MDNDevTool.securityTestsHeading;</strong></p>
-            <p>(Tree widget)</p>
+            <div id="sec-test-tree" style="display: block; visibility: visible; opacity: 1;"></div>
 
             <p><strong>&MDNDevTool.securityRecommendationsHeading;</strong></p>
-            <p>(Tree widget)</p>
+            <div id="sec-recommendation-tree"></div>
           </div>
         </xul:box> <!-- .splitview-nav-container -->
       </xul:box>   <!-- .splitview-controller -->
@@ -75,6 +75,9 @@
       <xul:box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
 
         (Right pane)
+
+
+
 
       </xul:box>
     </xul:box>
