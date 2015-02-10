@@ -16,71 +16,74 @@
 <?xml-stylesheet href="chrome://browser/skin/devtools/splitview.css" type="text/css"?>
 <?xml-stylesheet href="chrome://mdn-devtool/skin/style.css" type="text/css"?>
 
-<xul:window xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns="http://www.w3.org/1999/xhtml">
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <xul:script src="chrome://browser/content/devtools/theme-switching.js"/>
-  <xul:script src="tool.js"/>
+  <script src="chrome://browser/content/devtools/theme-switching.js"/>
+  <script src="tool.js"/>
 
-  <xul:stack class="theme-body">
+  <stack class="theme-body">
 
-    <xul:box class="splitview-root" context="sidebar-context">
-      <xul:box class="splitview-controller">
+    <box class="splitview-root" context="sidebar-context">
+      <box class="splitview-controller">
 
         <!-- Top left toolbar where buttons go -->
-        <xul:box class="splitview-main">
-          <xul:toolbar class="devtools-toolbar">
-             <xul:hbox class="devtools-toolbarbutton-group">
-              <xul:toolbarbutton
+        <box class="splitview-main">
+          <toolbar class="devtools-toolbar">
+             <hbox class="devtools-toolbarbutton-group">
+              <toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/record.png"
                         tooltiptext="&MDNDevTool.recordButtonTooltip;"
                         onclick="onRecordClick()"/>
-              <xul:toolbarbutton
+              <toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/stopwatch.svg"
                         tooltiptext="&MDNDevTool.scanningButtonTooltip;"
                         onclick="onScanClick()"/>
-              <xul:toolbarbutton class="devtools-toolbarbutton"
+              <toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""
                           tooltiptext="&MDNDevTool.importButtonTooltip;"
                           label="&MDNDevTool.importButtonLabel;"
                           onclick="onImportClick()"/>
-              <xul:toolbarbutton class="devtools-toolbarbutton"
+              <toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""
                           tooltiptext="&MDNDevTool.clearButtonTooltip;"
                           label="&MDNDevTool.clearButtonLabel;"
                           onclick="onClearClick()"/>
-            </xul:hbox>
-          </xul:toolbar>
-        </xul:box>
+            </hbox>
+          </toolbar>
+        </box>
 
         <!-- Botton of the left sidebar where the trees go -->
-        <xul:box id="splitview-resizer-target" class="theme-sidebar splitview-nav-container"
+        <box id="splitview-resizer-target" class="theme-sidebar splitview-nav-container"
                 persist="height">
           <ol class="splitview-nav" tabindex="0"></ol>
           <div class="splitview-nav mdn-content-pane">
             <p><strong>&MDNDevTool.securityTestsHeading;</strong></p>
-            <div id="sec-test-tree" style="display: block; visibility: visible; opacity: 1;"></div>
+            <div id="sec-test-tree"></div>
 
             <p><strong>&MDNDevTool.securityRecommendationsHeading;</strong></p>
             <div id="sec-recommendation-tree"></div>
           </div>
-        </xul:box> <!-- .splitview-nav-container -->
-      </xul:box>   <!-- .splitview-controller -->
+        </box> <!-- .splitview-nav-container -->
+      </box>   <!-- .splitview-controller -->
 
       <!-- Splitter handle -->
-      <xul:splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
+      <splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
 
       <!-- Right pane to display all text -->
-      <xul:box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
+      <box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
 
         (Right pane)
 
+        
 
 
 
-      </xul:box>
-    </xul:box>
-  </xul:stack>
 
-</xul:window>
+
+      </box>
+    </box>
+  </stack>
+
+</window>
