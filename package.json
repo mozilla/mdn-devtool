@@ -1,0 +1,19 @@
+{
+  "id": "@mdn-devtool",
+  "title": "MDN Services",
+  "name": "mdn-devtool",
+  "version": "0.0.1",
+  "description": "MDN Services official developer tool",
+  "main": "index.js",
+  "author": "David Walsh (@davidwalshblog), Jeff Griffiths ( @canuckistani )",
+  "keywords": ["security", "zest"],
+  "engines": {
+    "firefox": ">=33.0a1",
+    "fennec": ">=33.0a1"
+  },
+  "license": "MPL",
+  "dependencies": {
+    "zest-creator": "0.0.1",
+    "zest-runner": "0.0.2"
+  }
+}

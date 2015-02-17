@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE window [
+  <!ENTITY % MDNDevToolDTD SYSTEM "chrome://mdn-devtool/locale/strings.dtd">
+   %MDNDevToolDTD;
+]>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/devtools/widgets.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/devtools/splitview.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/common.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/widgets.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/devtools/splitview.css" type="text/css"?>
+<?xml-stylesheet href="style.css" type="text/css"?>
+
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script src="chrome://browser/content/devtools/theme-switching.js"/>
+  <script src="tool.js"/>
+
+  <stack class="theme-body">
+
+    <box class="splitview-root" context="sidebar-context">
+      <box class="splitview-controller">
+
+        <!-- Top left toolbar where buttons go -->
+        <box class="splitview-main">
+          <toolbar class="devtools-toolbar">
+             <hbox class="devtools-toolbarbutton-group">
+              <toolbarbutton
+                        class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        image="chrome://mdn-devtool/skin/record.png"
+                        tooltiptext="&MDNDevTool.recordButtonTooltip;"
+                        onclick="onRecordClick()"/>
+              <toolbarbutton
+                        class="devtools-toolbarbutton devtools-option-toolbarbutton"
+                        image="chrome://mdn-devtool/skin/stopwatch.svg"
+                        tooltiptext="&MDNDevTool.scanningButtonTooltip;"
+                        onclick="onScanClick()"/>
+              <toolbarbutton class="devtools-toolbarbutton"
+                          accesskey=""
+                          tooltiptext="&MDNDevTool.importButtonTooltip;"
+                          label="&MDNDevTool.importButtonLabel;"
+                          onclick="onImportClick()"/>
+              <toolbarbutton class="devtools-toolbarbutton"
+                          accesskey=""
+                          tooltiptext="&MDNDevTool.clearButtonTooltip;"
+                          label="&MDNDevTool.clearButtonLabel;"
+                          onclick="onClearClick()"/>
+            </hbox>
+          </toolbar>
+        </box>
+
+        <!-- Botton of the left sidebar where the trees go -->
+        <box id="splitview-resizer-target" class="theme-sidebar splitview-nav-container"
+                persist="height">
+          <ol class="splitview-nav" tabindex="0"></ol>
+          <div class="splitview-nav mdn-content-pane">
+            <p><strong></strong></p>
+            <div id="sec-test-tree"></div>
+
+            <p><strong></strong></p>
+            <div id="sec-recommendation-tree"></div>
+          </div>
+        </box> <!-- .splitview-nav-container -->
+      </box>   <!-- .splitview-controller -->
+
+      <!-- Splitter handle -->
+      <splitter class="devtools-side-splitter splitview-landscape-splitter devtools-invisible-splitter"/>
+
+      <!-- Right pane to display all text -->
+      <box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
+
+        (Right pane)
+
+        
+
+
+
+
+
+      </box>
+    </box>
+  </stack>
+
+</window>
