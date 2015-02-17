@@ -1,7 +1,18 @@
+/* Formatting classes */
 .theme-body {
 	-moz-box-flex: 1;
 }
 
 .mdn-content-pane {
 	padding: 10px 20px;
+}
+
+
+/* Utility classes */
+.hidden {
+	display: none;
+}
+
+.error-message {
+	color: red;
 }

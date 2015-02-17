@@ -67,14 +67,15 @@ var ZR;
 
 function startup(toolbox, target, ZestRunner) {
 
+  // Make the runner globally available
+  ZR = ZestRunner;
+
   /*
   // Create the testing tree
   let treeSecurity = new TreeWidget($("#sec-test-tree"));
   treeSecurity.on("select", function(e, i) {
 
   });
-
-  ZR = ZestRunner;
 
   var div = document.createElementNS(HTML_NS, "div");
   div.setAttribute("style", "position: relative; padding-left: 22px;")
@@ -136,21 +137,20 @@ function onImportClick() {
 
       // Now do something with the source!
       var obj;
-      try {
-        obj = JSON.parse(source);
-      }
-      catch(e){
-        alert('Could not parse JSON!');
-      }
+      try { obj = JSON.parse(source); } catch(e){}
 
+      // Make things happen if there's an object present
       if(obj) {
-        new ZR({
-          sourceType: 'object',
-          zest: obj,
-          platform: 'firefox'
-        }).run().then(function(arg) {
-          console.log('Received ', arg);
-        });
+        _runZestTests(obj);
+
+        // Reset the tree pane to the default tests
+        $("#clear-button").setAttribute("disabled", "false");
+
+        // Hide the error message if present
+        $("#import-error-message").classList.add("hidden");
+      }
+      else { // Show an error message that the zest file isn't good
+        $("#import-error-message").classList.remove("hidden");
       }
     });
 
@@ -164,6 +164,10 @@ function onImportClick() {
  */
 function onClearClick() {
 	// Reset the tree pane to the default tests
+      $("#clear-button").setAttribute("disabled", "true");
+
+      // Clear out the tree area
+      _clearJSONTrees();
 }
 
 /**
@@ -181,10 +185,37 @@ function onScanClick() {
 }
 
 /**
- * Clear out the sidebar tree area, create new trees
+ * Create new trees from provided JSON
  */
 function _populateTreesFromJSON(json) {
 
+}
+
+/**
+ * Clear out the sidebar tree area
+ */
+ function _clearJSONTrees() {
+
+ }
+
+/**
+* Runs the ZestRunner of a verified object
+*/
+function _runZestTests(obj, callback) {
+  return new ZR({
+        sourceType: "object",
+        zest: obj,
+        platform: "firefox"
+      }).run().then(_runZestTestsCallback);
+}
+
+/**
+* Callbck for zest tests
+*/
+function _runZestTestsCallback(arg1, arg2, arg3) {
+  console.log(arg1);
+  console.log(arg2);
+  console.log(arg3);
 }
 
 /**

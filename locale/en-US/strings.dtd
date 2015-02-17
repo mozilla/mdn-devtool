@@ -10,3 +10,4 @@
 <!ENTITY MDNDevTool.scanningButtonTooltip "Access scanning services">
 <!ENTITY MDNDevTool.securityTestsHeading "Security Tests">
 <!ENTITY MDNDevTool.securityRecommendationsHeading "Security Recommendations">
+<!ENTITY MDNDevTool.importErrorMessage "Invalid file format provided.">

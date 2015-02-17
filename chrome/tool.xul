@@ -35,11 +35,13 @@
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/record.png"
                         tooltiptext="&MDNDevTool.recordButtonTooltip;"
+                        disabled="true"
                         onclick="onRecordClick()"/>
               <toolbarbutton
                         class="devtools-toolbarbutton devtools-option-toolbarbutton"
                         image="chrome://mdn-devtool/skin/stopwatch.svg"
                         tooltiptext="&MDNDevTool.scanningButtonTooltip;"
+                        disabled="true"
                         onclick="onScanClick()"/>
               <toolbarbutton class="devtools-toolbarbutton"
                           accesskey=""
@@ -47,9 +49,11 @@
                           label="&MDNDevTool.importButtonLabel;"
                           onclick="onImportClick()"/>
               <toolbarbutton class="devtools-toolbarbutton"
+                          id="clear-button"
                           accesskey=""
                           tooltiptext="&MDNDevTool.clearButtonTooltip;"
                           label="&MDNDevTool.clearButtonLabel;"
+                          disabled="true"
                           onclick="onClearClick()"/>
             </hbox>
           </toolbar>
@@ -60,11 +64,11 @@
                 persist="height">
           <ol class="splitview-nav" tabindex="0"></ol>
           <div class="splitview-nav mdn-content-pane">
-            <p><strong></strong></p>
-            <div id="sec-test-tree"></div>
+            
+            <div id="import-error-message" class="error-message hidden"><p>&MDNDevTool.importErrorMessage;</p></div>
 
-            <p><strong></strong></p>
-            <div id="sec-recommendation-tree"></div>
+
+
           </div>
         </box> <!-- .splitview-nav-container -->
       </box>   <!-- .splitview-controller -->
@@ -75,7 +79,7 @@
       <!-- Right pane to display all text -->
       <box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
 
-        (Right pane)
+        
 
         
 
