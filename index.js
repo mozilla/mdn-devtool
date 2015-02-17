@@ -90,3 +90,17 @@ exports.onUnload = function() {
   gDevTools.unregisterTool(toolDefinition);
   Services.obs.notifyObservers(null, "startupcache-invalidate", null);
 }
+
+// Create a menu item for the "Tools" toolbar
+require("addon-pathfinder/ui/menuitems").Menuitem({
+  id: "securityMenuItem",
+  // Using this menuid "menuWebDeveloperPopup" since "menu_devToolbox" appears to be dynamic and I can't append to it
+  menuid: "menuWebDeveloperPopup",
+  label: toolStrings.GetStringFromName("MyAddon.label"),
+  insertbefore: "menu_devToolbox",
+  onCommand: function() {    
+    // TODO:  Open devtool to toolbox item
+
+    //require("dev/utils").openToolbox(toolDefinition);
+  }
+});
