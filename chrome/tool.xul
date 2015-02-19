@@ -67,6 +67,7 @@
             
             <div id="import-error-message" class="error-message hidden"><p>&MDNDevTool.importErrorMessage;</p></div>
 
+            <div id="import-trees-container" class="hidden"></div>
 
 
           </div>

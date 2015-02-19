@@ -66,40 +66,8 @@ function _(aName) {
 var ZR;
 
 function startup(toolbox, target, ZestRunner) {
-
   // Make the runner globally available
   ZR = ZestRunner;
-
-  /*
-  // Create the testing tree
-  let treeSecurity = new TreeWidget($("#sec-test-tree"));
-  treeSecurity.on("select", function(e, i) {
-
-  });
-
-  var div = document.createElementNS(HTML_NS, "div");
-  div.setAttribute("style", "position: relative; padding-left: 22px;")
-
-  var input = document.createElementNS(HTML_NS, "input");
-  input.setAttribute("type", "checkbox");
-  input.setAttribute("checked", "checked");
-  input.setAttribute("style", "position: absolute; top: 0; left: 0;");
-
-  var label = document.createElementNS(HTML_NS, "label");
-  label.textContent = "Check me";
-
-  div.appendChild(input);
-  div.appendChild(label);
-
-  treeSecurity.add(["Tests", { label: div, type: "checkbox" }]);
-  treeSecurity.add(["Tests", { label: "Item 2", type: "checkbox" }]);
-
-
-  // Create the recommendations tree
-  let treeRecommendation = new TreeWidget($("#sec-recommendation-tree"));
-  treeRecommendation.add(["Tests", { label: "Item 1", type: "checkbox" }]);
-  treeRecommendation.add(["Tests", { label: "Item 2", type: "checkbox" }]);
-  */
 
   return promise.resolve();
 }
@@ -129,7 +97,7 @@ function onImportClick() {
 
     NetUtil.asyncFetch(file, function(stream, status) {
       if (!Components.isSuccessCode(status)) {
-        this.emit("error", { key: LOAD_ERROR });
+        this.emit("error", { key: "error-load" });
         return;
       }
       let source = NetUtil.readInputStreamToString(stream, stream.available());
@@ -188,14 +156,45 @@ function onScanClick() {
  * Create new trees from provided JSON
  */
 function _populateTreesFromJSON(json) {
+  _clearJSONTrees();
 
+  /*
+  // Create the testing tree
+  let treeSecurity = new TreeWidget($("#sec-test-tree"));
+  treeSecurity.on("select", function(e, i) {
+
+  });
+
+  var div = document.createElementNS(HTML_NS, "div");
+  div.setAttribute("style", "position: relative; padding-left: 22px;")
+
+  var input = document.createElementNS(HTML_NS, "input");
+  input.setAttribute("type", "checkbox");
+  input.setAttribute("checked", "checked");
+  input.setAttribute("style", "position: absolute; top: 0; left: 0;");
+
+  var label = document.createElementNS(HTML_NS, "label");
+  label.textContent = "Check me";
+
+  div.appendChild(input);
+  div.appendChild(label);
+
+  treeSecurity.add(["Tests", { label: div, type: "checkbox" }]);
+  treeSecurity.add(["Tests", { label: "Item 2", type: "checkbox" }]);
+
+
+  // Create the recommendations tree
+  let treeRecommendation = new TreeWidget($("#sec-recommendation-tree"));
+  treeRecommendation.add(["Tests", { label: "Item 1", type: "checkbox" }]);
+  treeRecommendation.add(["Tests", { label: "Item 2", type: "checkbox" }]);
+  */
 }
 
 /**
  * Clear out the sidebar tree area
  */
  function _clearJSONTrees() {
-
+  $("#import-trees-container").textContent = "";
  }
 
 /**
@@ -210,12 +209,10 @@ function _runZestTests(obj, callback) {
 }
 
 /**
-* Callbck for zest tests
+* Callback for zest tests
 */
-function _runZestTestsCallback(arg1, arg2, arg3) {
-  console.log(arg1);
-  console.log(arg2);
-  console.log(arg3);
+function _runZestTestsCallback(result) {
+  
 }
 
 /**
