@@ -1,0 +1,27 @@
+{
+  "about": "This is a Zest script. For more details about Zest visit https://developer.mozilla.org/en-US/docs/Zest",
+  "zestVersion": "0.3",
+  "title": "Always fails - Medium",
+  "description": "Always fails with a HIGH alert",
+  "prefix": "",
+  "type": "Standalone",
+  "parameters": {
+    "tokenStart": "{{",
+    "tokenEnd": "}}",
+    "tokens": {},
+    "elementType": "ZestVariables"
+  },
+  "statements": [
+    {
+      "message": "This is an example failure message",
+      "priority": "MEDIUM",
+      "index": 1,
+      "enabled": true,
+      "elementType": "ZestActionFail"
+    }
+  ],
+  "authentication": [],
+  "index": 0,
+  "enabled": true,
+  "elementType": "ZestScript"
+}
