@@ -7,20 +7,39 @@
 	padding: 10px 20px;
 }
 
-ol {
-	display: block;
-}
-
 
 /* Utility classes */
 .hidden {
 	display: none;
 }
 
+.visible {
+	display: block;
+}
+
 .error-message {
 	color: red;
 }
 
-.error {
 
+/* Result list classes */
+#result-listing {
+	display: block;
+	list-style-type: none;
+	font-size: 14px;
+	padding-left: 0;
 }
+
+#result-listing  li {
+	padding: 6px 12px;
+	background: rgba(0, 255, 0, 0.2); /* default to pass */
+}
+
+#result-listing li.error {
+	background: rgba(255, 0, 0, 0.2);
+}
+
+#result-listing li.error.info {
+	background: rgba(255, 240, 0, 0.2);
+}
+

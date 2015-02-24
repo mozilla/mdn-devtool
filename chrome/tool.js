@@ -219,10 +219,10 @@ function _runZestTestsCallback(resultArr) {
     var listItem = document.createElementNS(HTML_NS, "li");
     if(result.result === false) {
       listItem.className = "error " + result.priority.toLowerCase() + " " + result.type;
-      listItem.innerHTML = "Error (" + result.priority + "): " + result.print + " (" + result.type + ")";
+      listItem.innerHTML = "<strong>" + _("MDNDevTool.stringError") + " (" + result.priority + "):</strong> " + result.print + " <i>(" + result.type + ")</i>";
     }
     else {
-      listItem.innerHTML = "Pass: " + result.print;
+      listItem.innerHTML = "<strong>" + _("MDNDevTool.stringPass") + ":</strong> " + result.print;
     }
     $("#result-listing").appendChild(listItem);
   });
