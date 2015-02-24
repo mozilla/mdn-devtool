@@ -16,11 +16,11 @@
   },
   "license": "MPL",
   "dependencies": {
-    "zest-creator": "0.0.1",
-    "zest-runner": "0.0.2",
+    "zest-runner": "0.0.4",
     "addon-pathfinder": "^1.0.3"
   },
   "devDependencies": {
-    "addon-pathfinder": "^1.0.3"
+    "addon-pathfinder": "^1.0.3",
+    "zest-runner": "0.0.4"
   }
 }
