@@ -5,7 +5,7 @@
 
 const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 
-this.EXPORTED_SYMBOLS = ["MyAddonPanel"];
+this.EXPORTED_SYMBOLS = ["MDNSecurityPanel"];
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
@@ -22,7 +22,7 @@ XPCOMUtils.defineLazyModuleGetter(this, "promise",
  * @param Toolbox toolbox
  *        The developer tools toolbox, containing all tools.
  */
-function MyAddonPanel(iframeWindow, toolbox, ZestRunner) {
+function MDNSecurityPanel(iframeWindow, toolbox, ZestRunner) {
   this.panelWin = iframeWindow;
   this._toolbox = toolbox;
   this.ZestRunner = ZestRunner;
@@ -30,7 +30,7 @@ function MyAddonPanel(iframeWindow, toolbox, ZestRunner) {
   EventEmitter.decorate(this);
 };
 
-MyAddonPanel.prototype = {
+MDNSecurityPanel.prototype = {
   get target() this._toolbox.target,
 
   /**

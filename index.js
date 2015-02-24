@@ -31,7 +31,7 @@ XPCOMUtils.defineLazyGetter(this, "toolDefinition", () => ({
   ordinal: 99,
 
   // Main keybinding key (used as a keyboard shortcut).
-  key: toolStrings.GetStringFromName("MyAddon.commandkey"),
+  key: toolStrings.GetStringFromName("MDNDevTool.commandkey"),
 
   // Main keybinding modifiers.
   modifiers: osString == "Darwin" ? "accel,alt" : "accel,shift",
@@ -43,10 +43,10 @@ XPCOMUtils.defineLazyGetter(this, "toolDefinition", () => ({
   url: "chrome://mdn-devtool/content/tool.xul",
 
   // The tool's name. Showed in Firefox' tool menu and in the Toolbox' tab.
-  label: toolStrings.GetStringFromName("MyAddon.label"),
+  label: toolStrings.GetStringFromName("MDNDevTool.label"),
 
   // The tooltip text shown in the Toolbox's tab.
-  tooltip: toolStrings.GetStringFromName("MyAddon.tooltip"),
+  tooltip: toolStrings.GetStringFromName("MDNDevTool.tooltip"),
 
   // If the target is not supported, the toolbox will hide the tab.
   // Targets can be local or remote (used in remote debugging).
@@ -58,7 +58,7 @@ XPCOMUtils.defineLazyGetter(this, "toolDefinition", () => ({
   // It is called only once the toold definition's URL is loaded.
   build: function(iframeWindow, toolbox) {
     Cu.import("chrome://mdn-devtool/content/panel.js");
-    let panel = new MyAddonPanel(iframeWindow, toolbox, ZestRunner);
+    let panel = new MDNSecurityPanel(iframeWindow, toolbox, ZestRunner);
     return panel.open();
   }
 }));
@@ -96,7 +96,7 @@ require("addon-pathfinder/ui/menuitems").Menuitem({
   id: "securityMenuItem",
   // Using this menuid "menuWebDeveloperPopup" since "menu_devToolbox" appears to be dynamic and I can't append to it
   menuid: "menuWebDeveloperPopup",
-  label: toolStrings.GetStringFromName("MyAddon.label"),
+  label: toolStrings.GetStringFromName("MDNDevTool.label"),
   insertbefore: "menu_devToolbox",
   onCommand: function() {    
     // TODO:  Open devtool to toolbox item

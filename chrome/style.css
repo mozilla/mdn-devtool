@@ -7,6 +7,10 @@
 	padding: 10px 20px;
 }
 
+ol {
+	display: block;
+}
+
 
 /* Utility classes */
 .hidden {
@@ -15,4 +19,8 @@
 
 .error-message {
 	color: red;
+}
+
+.error {
+
 }

@@ -81,9 +81,9 @@
       <box class="splitview-side-details devtools-main-content mdn-content-pane" id="main-pane">
 
         
-
+        <html:ol id="result-listing"></html:ol>
         
-
+        <html:textarea id="result-content"></html:textarea>
 
 
 

@@ -133,6 +133,7 @@ function onImportClick() {
 function onClearClick() {
 	// Reset the tree pane to the default tests
       $("#clear-button").setAttribute("disabled", "true");
+      $("#result-listing").innerHTML = "";
 
       // Clear out the tree area
       _clearJSONTrees();
@@ -200,7 +201,7 @@ function _populateTreesFromJSON(json) {
 /**
 * Runs the ZestRunner of a verified object
 */
-function _runZestTests(obj, callback) {
+function _runZestTests(obj) {
   return new ZR({
         sourceType: "object",
         zest: obj,
@@ -211,8 +212,20 @@ function _runZestTests(obj, callback) {
 /**
 * Callback for zest tests
 */
-function _runZestTestsCallback(result) {
-  
+function _runZestTestsCallback(resultArr) {
+  $("#result-content").value = JSON.stringify(resultArr);
+
+  resultArr.forEach(function(result) {
+    var listItem = document.createElementNS(HTML_NS, "li");
+    if(result.result === false) {
+      listItem.className = "error " + result.priority.toLowerCase() + " " + result.type;
+      listItem.innerHTML = "Error (" + result.priority + "): " + result.print + " (" + result.type + ")";
+    }
+    else {
+      listItem.innerHTML = "Pass: " + result.print;
+    }
+    $("#result-listing").appendChild(listItem);
+  });
 }
 
 /**
@@ -221,7 +234,7 @@ function _runZestTestsCallback(result) {
 function _importFile(callback) {
   let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
   fp.init(window, _("MDNDevTool.importWindowTitle"), fp.modeOpen);
-  fp.appendFilters(_("MDNDevTool.importWindowFilter"), "*.zest");
+  fp.appendFilters(_("MDNDevTool.importWindowFilter"), "*.zst");
   fp.appendFilters(fp.filterAll);
   fp.open(function(result) {
     callback(result == Ci.nsIFilePicker.returnCancel ? null : fp.file);
