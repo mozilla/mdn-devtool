@@ -17,10 +17,12 @@
   "license": "MPL",
   "dependencies": {
     "zest-runner": "0.0.4",
-    "addon-pathfinder": "^1.0.3"
+    "addon-pathfinder": "^1.0.3",
+    "jpm": "0.0.23"
   },
   "devDependencies": {
     "addon-pathfinder": "^1.0.3",
-    "zest-runner": "0.0.4"
+    "zest-runner": "0.0.4",
+    "jpm": "0.0.23"
   }
 }
