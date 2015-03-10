@@ -12,6 +12,8 @@ Cu.import("resource://gre/modules/NetUtil.jsm");
 
 const {devtools} = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
 
+let { _, _importFile } = devtools.require('chrome://mdn-devtool/content/utils.js');
+
 const HTML_NS = "http://www.w3.org/1999/xhtml";
 
 XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter",
@@ -21,31 +23,6 @@ XPCOMUtils.defineLazyModuleGetter(this, "promise",
 
 XPCOMUtils.defineLazyGetter(this, "TreeWidget",
   () => devtools.require("devtools/shared/widgets/TreeWidget").TreeWidget);
-
-XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
-  Services.strings.createBundle("chrome://mdn-devtool/locale/strings.properties"));
-
-/**
- * Returns a localized string with the given key name from the string bundle.
- *
- * @param aName
- * @param ...rest
- *        Optional arguments to format in the string.
- * @return string
- */
-function _(aName) {
-  try {
-    if (arguments.length == 1) {
-      return toolStrings.GetStringFromName(aName);
-    }
-    let rest = Array.prototype.slice.call(arguments, 1);
-    return toolStrings.formatStringFromName(aName, rest, rest.length);
-  }
-  catch (ex) {
-    console.error(ex);
-  }
-}
-
 
 /**
  * This file has access to the `window` and `document` objects of the add-on's
@@ -225,18 +202,5 @@ function _runZestTestsCallback(resultArr) {
       listItem.innerHTML = "<strong>" + _("MDNDevTool.stringPass") + ":</strong> " + result.print;
     }
     $("#result-listing").appendChild(listItem);
-  });
-}
-
-/**
- * Open the nave file picker
- */
-function _importFile(callback) {
-  let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-  fp.init(window, _("MDNDevTool.importWindowTitle"), fp.modeOpen);
-  fp.appendFilters(_("MDNDevTool.importWindowFilter"), "*.zst");
-  fp.appendFilters(fp.filterAll);
-  fp.open(function(result) {
-    callback(result == Ci.nsIFilePicker.returnCancel ? null : fp.file);
   });
 }
