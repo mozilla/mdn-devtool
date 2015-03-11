@@ -6,6 +6,9 @@
   "description": "MDN Services official developer tool",
   "main": "index.js",
   "author": "David Walsh (@davidwalshblog), Jeff Griffiths ( @canuckistani )",
+  "scripts": {
+    "test": "jpm test"
+  },
   "keywords": [
     "security",
     "zest"

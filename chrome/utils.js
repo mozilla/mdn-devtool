@@ -3,11 +3,11 @@
 const { Cu, Cc, Ci } = require('chrome'),
       utils          = require('sdk/window/utils');
 
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
   Services.strings.createBundle("chrome://mdn-devtool/locale/strings.properties"));
-
 
 /**
  * Returns a localized string with the given key name from the string bundle.
