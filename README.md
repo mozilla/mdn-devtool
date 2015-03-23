@@ -4,6 +4,17 @@ mdn-devtool
 A new developer tool tab add-on for MDN.
 
 
+Using the Add-on
+================
+
+To use the add-on:
+
+	*  Click the "import" button
+	*  Select a `.zst` file from your local machine
+
+At present, the test will be run upon selection and results will display in the right pane!
+
+
 Developing 
 ==========
 
